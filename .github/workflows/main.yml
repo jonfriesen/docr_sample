@@ -32,7 +32,7 @@ jobs:
         token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
         images: '[
                           {
-                            "name": "web",
+                            "name": "docr-sample",
                             "repository": "registry.digitalocean.com/jon-apps-images-e2e/add_sample",
                             "tag": "${{steps.github-sha.outputs.sha}}"
                           }
