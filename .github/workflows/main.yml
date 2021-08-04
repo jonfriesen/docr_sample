@@ -23,8 +23,8 @@ jobs:
       shell: bash
       run: |
         doctl registry login --expiry-seconds 600
-        docker build . -t registry.digitalocean.com/sample-go/add_sample:${{steps.github-sha.outputs.sha}}
-        docker push registry.digitalocean.com/sample-go/add_sample:${{steps.github-sha.outputs.sha}}
+        docker build . -t registry.digitalocean.com/jon-apps-images-e2e/add_sample:${{steps.github-sha.outputs.sha}}
+        docker push registry.digitalocean.com/jon-apps-images-e2e/add_sample:${{steps.github-sha.outputs.sha}}
     - name: DigitalOcean App Platform deployment
       uses: ParamPatel207/app_action@main
       with:
@@ -33,7 +33,7 @@ jobs:
         images: '[
                           {
                             "name": "web",
-                            "repository": "registry.digitalocean.com/sample-go/add_sample",
+                            "repository": "registry.digitalocean.com/jon-apps-images-e2e/add_sample",
                             "tag": "${{steps.github-sha.outputs.sha}}"
                           }
                         ]'
